@@ -1,0 +1,7 @@
+<template>
+    <lightning-card title="Raised & Expected Funds" icon-name="utility:chart">
+        <template if:true={chartConfiguration}>
+            <c-root-chart chart-config={chartConfiguration}></c-root-chart>
+        </template>
+</lightning-card>
+</template>

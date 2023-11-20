@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Campaign Records" icon-name="standard:campaign">
+        <div class="slds-m-around_medium">
+            <template if:true={campaignRecords}>
+                <template for:each={campaignRecords} for:item="campaignWrapper">
+                    <div key={campaignWrapper.campaign.Id} class="custom-container">
+                        <h2 class="campaign-header">{campaignWrapper.campaign.Name}</h2>
+                        <div class="campaign-details">
+                            <div class="campaign-info">
+                                <p class="info-text"><strong>Description:</strong> {campaignWrapper.campaign.Description}</p>
+                                <p class="info-text"><strong>Start Date:</strong> {campaignWrapper.campaign.StartDate}</p>
+                                <p class="info-text"><strong>End Date:</strong> {campaignWrapper.campaign.EndDate}</p>
+                                <p class="info-text"><strong>Expected Fund:</strong> {campaignWrapper.campaign.ExpectedRevenue}</p>
+                                <p class="info-text"><strong>Raised Fund:</strong> {campaignWrapper.campaign.AmountWonOpportunities}</p>
+                            </div>
+                            <div class="campaign-image">
+                                <template if:true={downloadUrl.data}>
+                                    <img src={downloadUrl.data} alt={campaignWrapper.contentVersion.Title} />
+                                </template>
+                                <template if:false={downloadUrl.data}>
+                                    No image available.
+                                </template>
+                            </div>
+                            <div class="campaign-actions">
+                                <lightning-button
+                                    key={campaignWrapper.campaign.Id}
+                                    label="Register"
+                                    title="Register for this campaign"
+                                    variant="brand"
+                                    onclick={handleRegisterClick}
+                                ></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={error}>
+                <p>{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

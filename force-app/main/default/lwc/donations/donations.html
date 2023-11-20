@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Make a Donation" icon-name="standard:donation">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Donation Amount" type="number" step="0.01" value={donationAmount}></lightning-input>
+            <lightning-combobox label="Select Campaign" value={selectedCampaign} options={campaignOptions} onchange={handleCampaignChange}></lightning-combobox>
+            <div class="slds-m-top_medium">
+                <lightning-input type="checkbox" label="Recurring Donation" checked={isRecurring} onchange={handleRecurringChange}></lightning-input>
+                <template if:true={isRecurring}>
+                    <lightning-input type="number" label="Recurrence Frequency (Months)" min="1" step="1" value={recurrenceFrequency}></lightning-input>
+                </template>
+            </div>
+            <lightning-button label="Donate" variant="brand" onclick={handleDonate}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Donation History" icon-name="custom:custom14">
+        <template if:true={oppPayments}>
+            <lightning-datatable
+                key-field="Id"
+                data={oppPayments}
+                columns={columns}
+                hide-checkbox-column
+            ></lightning-datatable>
+        </template>
+        <template if:true={error}>
+            <p>Error loading opportunity payments</p>
+        </template>
+    </lightning-card>
+</template>

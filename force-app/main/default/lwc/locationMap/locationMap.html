@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Location Map" icon-name="standard:location">
+        <lightning-map
+            map-markers={markers}
+            zoom-level="10"
+            markers-title="Location Points"
+            show-footer="true"
+            onmarkerclick={handleMarkerClick}
+        ></lightning-map>
+
+        <!-- Display details of the selected location -->
+        <div if:true={selectedLocation}>
+            <h2>{selectedLocation.title}</h2>
+            <p>{selectedLocation.description}</p>
+            <!-- Add more details as needed -->
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Opportunity Data Table" icon-name="standard:opportunity">
+        <lightning-datatable
+            key-field="Id"
+            data={pagedOpportunities}
+            columns={columns}
+            hide-checkbox-column
+        ></lightning-datatable>
+
+        <lightning-layout class="slds-m-top_medium">
+            <lightning-layout-item flexibility="auto">
+                <lightning-button-group>
+                    <lightning-button label="First" onclick={handleFirst}></lightning-button>
+                    <lightning-button label="Previous" onclick={handlePrevious}></lightning-button>
+                    <lightning-button label="Next" onclick={handleNext}></lightning-button>
+                    <lightning-button label="Last" onclick={handleLast}></lightning-button>
+                </lightning-button-group>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

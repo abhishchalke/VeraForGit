@@ -1,0 +1,10 @@
+<!-- supportForm.html -->
+<template>
+    <lightning-card title="Support Form">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Subject" value={subject} onchange={handleSubjectChange}></lightning-input>
+            <lightning-textarea label="Query" value={query} onchange={handleQueryChange}></lightning-textarea>
+            <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
